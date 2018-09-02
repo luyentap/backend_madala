@@ -37,4 +37,4 @@ class Friend(models.Model):
     is_friend = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.user)
+        return "%s : %s" %(str(self.user),self.status)
