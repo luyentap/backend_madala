@@ -19,7 +19,7 @@ class CategoryResource(ModelResource):
     """
     class Meta:
         queryset = Category.objects.all()
-        resource_name = 'category'
+        resource_name = 'categorys'
         allowed_methods = ["get", "put", "delete","post"]
         # fields = ['id', 'username', 'address', 'birthday', 'first_name', 'last_name']
         authentication = Authentication()
@@ -31,6 +31,8 @@ class ProductResource(ModelResource):
     """
         see,update,create product
     """
+    category = fields.ForeignKey(CategoryResource, attribute='category',full=True,default=1,null=True)
+
     class Meta:
         queryset = Product.objects.all()
         resource_name = 'products'
@@ -44,6 +46,7 @@ class ProductHotResource(ModelResource):
     """
         see hotproduct
     """
+    category = fields.ForeignKey(CategoryResource, attribute='category')
     class Meta:
         queryset = Product.objects.all().order_by('-numberBuy')
         resource_name = 'products_hot'
@@ -53,6 +56,8 @@ class ProductHotResource(ModelResource):
         always_return_data = True
 
 class ProductNewResource(ModelResource):
+    category = fields.ForeignKey(CategoryResource, attribute='category')
+
     """
         see new product
     """

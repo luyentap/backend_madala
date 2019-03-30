@@ -13,6 +13,7 @@ class Product(models.Model):
     category = models.OneToOneField(Category)
 
     name = models.CharField(max_length=100)
+    brand =models.CharField(max_length=100)
     content = models.TextField(max_length=1000)
     img = models.CharField(max_length=100)
     new_price = models.IntegerField(default=0)
