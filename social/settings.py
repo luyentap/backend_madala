@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'apps.posts.apps.PostsConfig',
     'apps.products.apps.ProductsConfig',
     'apps',
-    'tastypie'
+    'tastypie',
 ]
 
 MIDDLEWARE = [
